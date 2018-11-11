@@ -1,0 +1,36 @@
+Jiff 
+
+Originally written by Agostino de Marco to provide plots of JSBSim tables.
+This version searches for tables within JSBSim functions, which would otherwise have been missed by the original program. 
+
+Standard usage
+
+Jiff is a command line program. A typical commands are
+
+jiff -h
+jiff myjsbsimfile.xml -g png
+
+Each table must have a name e.g. 
+			<table name =  "aero/table/nrTableM0.7">
+				<independentVar lookup = "row">atmosphere/density-altitude</independentVar>
+				<independentVar lookup = "column"> aero/alpha-deg </independentVar>
+				<tableData>
+					-6	0	6	12	18
+					0	-0.5363	-0.5539	-0.5989	-0.6626	-0.7556
+					10000	-0.5482	-0.5668	-0.6057	-0.6762	-0.7639
+					30000	-0.5640	-0.5844	-0.6262	-0.6906	-0.7845
+				</tableData>
+			</table>
+			
+This will produce 3 jiff output files
+aero_table_nrTableM0.7.dat,  aero_table_nrTableM0.7.plt, aero_table_nrTableM0.7.png 
+
+the .dat file is the raw data in the table, the .plt file is for use by GNUPlot, and the .png is an image file.
+
+GNUplot must be installed and the program should be in the environment path. 
+https://sourceforge.net/projects/gnuplot/files/gnuplot/
+
+The present version does not support 3d tables.
+
+
+
